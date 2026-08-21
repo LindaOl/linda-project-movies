@@ -1,29 +1,24 @@
-import React from "react";
-
-export const SelectedMovie = ({ title, image, id, bg, description, rating }) => {
-
+export const MovieDetails = ({ title, image, description, rating }) => {
     return (
-
-        <article className="DetailsWrapper">
-
-            <div key={id} className="MovieInformation">
-
+        <article className="details-wrapper">
+            <div className="movie-information">
                 <img
-                    className="CoverArt"
+                    className="cover-art"
                     src={image}
                     alt={`${title} poster`}
                 />
-                <h1><span className="title">{title}</span>
-                    <span className="ratingContainer">
-                        {rating}
-                    </span>
-                </h1>
-
-                <p>{description}</p>
-
+                <div className="movie-text">
+                    <h1>
+                        <span className="title">
+                            {title}
+                        </span>
+                        <span className="rating-container">
+                            {rating}
+                        </span>
+                    </h1>
+                    <p>{description}</p>
+                </div>
             </div>
-
         </article>
-
-    )
-}
+    );
+};

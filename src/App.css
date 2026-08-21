@@ -1,34 +1,43 @@
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
 
 /*Home page*/
-.CardWrapper {
+.card-wrapper {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-}
-
-.MovieCard {
-    position: relative;
-    display: block;
-    min-width: 0;
-    padding: 0;
-    margin: 0;
+    grid-template-columns: 1fr;
     gap: 0;
-    width: 100%;
 }
 
 
-.CoverImage {
+.movie-card,
+.movie-link,
+.list-card-wrapper {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.movie-card {
+    position: relative;
+    min-width: 0;
+    border: 0;
+}
+
+
+.cover-image {
     display: block;
     width: 100%;
     height: auto;
+
 }
 
 
-.PreviewTitle {
+.preview-title {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -38,31 +47,25 @@
 }
 
 
-.CardWrapper img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-
-.MovieCard:hover .PreviewTitle {
+.movie-card:hover .preview-title,
+.movie-link:focus .preview-title {
     display: flex;
     flex-direction: column;
 }
 
-.MovieCard:hover .CoverImage {
-    filter: brightness(50%);
+
+.movie-card:hover .cover-image {
+    filter: brightness(25%);
 }
 
 
-.PreviewTitle h1 {
-    margin-top: auto;
+.preview-title h1 {
     margin-bottom: 0;
 }
 
 
 /*Details Page*/
-.DetailsCard {
+.details-card {
     position: relative;
     height: 100vh;
     background-size: cover;
@@ -71,7 +74,17 @@
 }
 
 
-.DetailsCard button {
+.details-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            transparent 65%,
+            rgba(0, 0, 0, 0.8) 100%);
+}
+
+
+.details-card button {
     position: absolute;
     background-color: transparent;
     border: none;
@@ -83,9 +96,13 @@
     font-size: 1em;
     display: inline-flex;
     align-items: center;
+    font-family: inherit;
+    padding: 0;
+    z-index: 1;
 }
 
-.DetailsCard button::before {
+
+.details-card button::before {
     content: "";
     display: inline-block;
     width: 30px;
@@ -98,47 +115,42 @@
 }
 
 
-.DetailsWrapper {
-    background: transparent;
+.details-wrapper {
     height: 100%;
     display: flex;
     align-items: end;
-    justify-content: start;
 }
 
 
-.MovieInformation {
+.movie-information {
+    display: flex;
+    flex-direction: column;
     padding: 50px;
     color: white;
+    z-index: 1;
 }
 
 
-.MovieInformation p {
+.movie-information p {
     max-width: 400px;
 }
 
 
-.CoverArt {
-    display: flex;
+.cover-art {
     width: 200px;
-    border: solid white 5px;
+    border: 5px solid white;
 }
 
 
-.ratingContainer {
+.rating-container {
     background-color: white;
     color: #000;
     padding: 0 5px;
-    display: inline-block;
-    align-items: center;
     font-weight: 500;
 }
 
-.title {
-    margin-right: 10px;
-}
 
-.ratingContainer::before {
+.rating-container::before {
     content: "";
     display: inline-block;
     width: 20px;
@@ -150,21 +162,55 @@
     padding-right: 5px;
 }
 
+
+.title {
+    margin-right: 20px;
+    text-shadow: 1px 1px #4d4d4d;
+}
+
+
+@media screen and (min-width: 370px) {
+    .card-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
 @media screen and (min-width: 570px) {
-    .CardWrapper {
-        display: grid;
+    .card-wrapper {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media screen and (min-width: 820px) {
-    .CardWrapper {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+
+@media screen and (min-width: 577px) {
+    .movie-information {
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+    }
+
+
+    .cover-art {
+        width: 250px;
+    }
+
+
+    .movie-text {
+        margin-left: 20px;
     }
 }
 
 
-@media screen and (min-width: 1280px) {}
+@media screen and (min-width: 770px) {
+    .cover-art {
+        width: auto;
+        max-height: 520px;
+    }
+}
 
-@media screen and (min-width: 11536px) {}
+@media screen and (min-width: 820px) {
+    .card-wrapper {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
