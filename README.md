@@ -26,7 +26,5 @@ You need Node.js and npm installed.
 
 The project uses React, React Router and Vite.
 
-```
-
 ## View it live
 [Website](https://linda-project-movies.olssonli.workers.dev/)
