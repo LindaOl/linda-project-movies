@@ -7,6 +7,7 @@
 .CardWrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
 }
 
 .MovieCard {
@@ -20,7 +21,6 @@
 }
 
 
-
 .CoverImage {
     display: block;
     width: 100%;
@@ -28,8 +28,6 @@
 }
 
 
-/*Remove if i dont add a title to the list again*/
-/*make an eventlistener or other javascript to make a hover effect to make it display*/
 .PreviewTitle {
     position: absolute;
     bottom: 0;
@@ -57,10 +55,10 @@
 }
 
 
-
-
-
-
+.PreviewTitle h1 {
+    margin-top: auto;
+    margin-bottom: 0;
+}
 
 
 /*Details Page*/
@@ -99,6 +97,7 @@
     padding-right: 5px;
 }
 
+
 .DetailsWrapper {
     background: transparent;
     height: 100%;
@@ -108,11 +107,11 @@
 }
 
 
-
 .MovieInformation {
     padding: 50px;
     color: white;
 }
+
 
 .MovieInformation p {
     max-width: 400px;
@@ -124,6 +123,7 @@
     width: 200px;
     border: solid white 5px;
 }
+
 
 .ratingContainer {
     background-color: white;
@@ -150,7 +150,7 @@
     padding-right: 5px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 570px) {
     .CardWrapper {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -163,3 +163,8 @@
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
+
+@media screen and (min-width: 1280px) {}
+
+@media screen and (min-width: 11536px) {}

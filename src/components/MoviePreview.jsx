@@ -17,8 +17,8 @@ export const MovieList = ({ title, image, id, release }) => {
                 />
 
                 <div className="PreviewTitle">
-                    <h2>{title}</h2>
-                    <h3>{release}</h3>
+                    <h1>{title}</h1>
+                    <p>Released {release}</p>
                 </div>
 
             </div>
